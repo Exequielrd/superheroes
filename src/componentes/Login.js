@@ -1,11 +1,13 @@
-import React, { useState } from "react"
 import "../styles/Login.css"
-import logo from "../images/logo.png"
+import React, { useState } from "react"
+import { Redirect } from "react-router-dom"
 import { Formik } from "formik"
 import axios from "axios"
+import logo from "../images/logo.png"
 
 const Login = () => {
   const [submitError, setSubmitError] = useState()
+  const [redirect, setRedirect] = useState(false)
 
   return (
     <div className="login_container">
@@ -44,6 +46,7 @@ const Login = () => {
             .then((response) => {
               localStorage.setItem("token", response.data.token)
               setSubmitting(false)
+              setRedirect(true)
             })
             .catch((err) => {
               setSubmitError(err)
@@ -117,6 +120,8 @@ const Login = () => {
           </form>
         )}
       </Formik>
+
+      {redirect && <Redirect to="/home" />}
     </div>
   )
 }
