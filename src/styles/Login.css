@@ -1,0 +1,38 @@
+.login_container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #b50807;
+  box-shadow: 0.2rem 0.2rem 2rem black inset;
+  padding: 1rem;
+}
+
+.login_logo {
+  width: 10rem;
+}
+
+form {
+  width: 100%;
+  max-width: 25rem;
+  background-color: rgb(34, 7, 7);
+  padding: 3rem 2rem;
+  border-radius: 1rem;
+  color: #eee;
+  z-index: 10;
+}
+
+.errors {
+  font-weight: 100;
+  color: #ccc;
+}
+
+button {
+  width: 100%;
+}
+
+.alert {
+  position: absolute;
+  top: 5rem;
+}
