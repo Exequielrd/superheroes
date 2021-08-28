@@ -18,6 +18,7 @@ function App() {
           <Home />
         </PrivateRoute>
       </Switch>
+      <Redirect to="/home" />
     </Router>
   )
 }
