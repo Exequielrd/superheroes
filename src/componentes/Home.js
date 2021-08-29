@@ -1,13 +1,9 @@
-import axios from "axios"
-import React, { useEffect, useReducer, useState } from "react"
+import React, { useReducer } from "react"
 import "../styles/Home.css"
 import SearchHero from "./SearchHero"
 import Team from "./Team"
 
 const Home = () => {
-  const [id, setId] = useState(680)
-  const [superhero, setSuperhero] = useState("")
-
   // Reducer for handle the team
   const initialState = []
 
@@ -22,15 +18,6 @@ const Home = () => {
     }
   }
   const [team, dispatch] = useReducer(reducer, initialState)
-
-  console.log(superhero)
-  useEffect(() => {
-    axios
-      .get(`https://superheroapi.com/api/2979053042377754/${id}`)
-      .then((res) => {
-        setSuperhero(res.data)
-      })
-  }, [id])
 
   return (
     <div className="container-fluid">
