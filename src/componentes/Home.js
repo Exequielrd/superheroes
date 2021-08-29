@@ -1,14 +1,29 @@
-import { typeParameterDeclaration } from "@babel/types"
 import axios from "axios"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useReducer, useState } from "react"
 import "../styles/Home.css"
+import SearchHero from "./SearchHero"
 import Team from "./Team"
 
 const Home = () => {
   const [id, setId] = useState(680)
   const [superhero, setSuperhero] = useState("")
-  console.log(superhero)
 
+  // Reducer for handle the team
+  const initialState = []
+
+  function reducer(state, action) {
+    switch (action.type) {
+      case "ADDHERO":
+        return [...state, { hero: action.payload }]
+      case "DELETEHERO":
+        return [state.filter((hero) => hero.id !== action.payload.id)]
+      default:
+        return state
+    }
+  }
+  const [team, dispatch] = useReducer(reducer, initialState)
+
+  console.log(superhero)
   useEffect(() => {
     axios
       .get(`https://superheroapi.com/api/2979053042377754/${id}`)
@@ -19,7 +34,8 @@ const Home = () => {
 
   return (
     <div className="container-fluid">
-      <Team />
+      <Team team={team} />
+      <SearchHero />
     </div>
   )
 }

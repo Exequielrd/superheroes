@@ -5,7 +5,7 @@ const Team = ({ team }) => {
   return (
     <div className="container">
       <div className="row">
-        {team &&
+        {team["id"] &&
           team.map((hero) => (
             <div className="card">
               <h2>{hero.name}</h2>

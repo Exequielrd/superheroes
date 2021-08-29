@@ -13,7 +13,7 @@
   width: 10rem;
 }
 
-form {
+.login_form {
   width: 100%;
   max-width: 25rem;
   background-color: rgb(34, 7, 7);
