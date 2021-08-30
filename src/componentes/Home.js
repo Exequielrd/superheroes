@@ -10,7 +10,7 @@ const Home = () => {
   function reducer(state, action) {
     switch (action.type) {
       case "ADDHERO":
-        return [...state, { hero: action.payload }]
+        return [...state, action.payload]
       case "DELETEHERO":
         return [state.filter((hero) => hero.id !== action.payload.id)]
       default:
@@ -20,9 +20,9 @@ const Home = () => {
   const [team, dispatch] = useReducer(reducer, initialState)
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid ">
       <Team team={team} />
-      <SearchHero />
+      <SearchHero dispatch={dispatch} />
     </div>
   )
 }

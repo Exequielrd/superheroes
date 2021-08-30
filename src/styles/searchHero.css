@@ -1,0 +1,9 @@
+.search_result_container {
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+}
+
+.searchHero_card {
+  width: 15rem;
+}
