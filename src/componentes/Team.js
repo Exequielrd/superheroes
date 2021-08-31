@@ -5,19 +5,29 @@ const Team = ({ team }) => {
   const powerstats = team.map((hero) => Object.entries(hero.powerstats))
   const flated = powerstats.flat()
   const teamstats = {}
+
   flated.forEach((arr) => {
-    console.log(arr[0] in teamstats)
     if (arr[0] in teamstats) {
       teamstats[arr[0]] += parseInt(arr[1])
     } else {
       teamstats[arr[0]] = parseInt(arr[1])
     }
   })
-  console.log(teamstats)
+
+  const helper = Object.values(teamstats).sort((a, b) => b - a)
+
+  const speciality = {}
+  for (let stat in teamstats) {
+    if (teamstats[stat] === helper[0]) {
+      speciality[teamstats[stat]] = stat
+    }
+  }
+  console.log(speciality)
 
   return (
     <div className="team_container">
       <h1>Mis Heroes</h1>
+      <h2>Especialidad: {speciality[helper[0]]}</h2>
       {
         <ul className="team_stats">
           <li>IQ: {teamstats.intelligence || 0}</li>
@@ -25,7 +35,7 @@ const Team = ({ team }) => {
           <li>DB: {teamstats.durability || 0}</li>
           <li>SP: {teamstats.speed || 0}</li>
           <li>PW: {teamstats.power || 0}</li>
-          <li>CM: {teamstats.combat || 0}</li>
+          <li>CT: {teamstats.combat || 0}</li>
         </ul>
       }
       {team &&

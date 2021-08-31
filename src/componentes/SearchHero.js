@@ -21,7 +21,7 @@ const SearchHero = ({ dispatch, team }) => {
 
   return (
     <Formik
-      initialValues={{ name: "" }}
+      initialValues={{ name: "", id: "" }}
       validate={(values) => {
         const errors = {}
         if (!values.name) {
@@ -30,7 +30,7 @@ const SearchHero = ({ dispatch, team }) => {
         return errors
       }}
       onSubmit={(values, { setSubmitting }) => {
-        if (values.name) {
+        if (values.name.length > 3) {
           setSubmitting(true)
           axios
             .get(
