@@ -1,11 +1,33 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "../styles/Team.css"
 
 const Team = ({ team }) => {
-  console.log(team)
+  const powerstats = team.map((hero) => Object.entries(hero.powerstats))
+  const flated = powerstats.flat()
+  const teamstats = {}
+  flated.forEach((arr) => {
+    console.log(arr[0] in teamstats)
+    if (arr[0] in teamstats) {
+      teamstats[arr[0]] += parseInt(arr[1])
+    } else {
+      teamstats[arr[0]] = parseInt(arr[1])
+    }
+  })
+  console.log(teamstats)
+
   return (
     <div className="team_container">
       <h1>Mis Heroes</h1>
+      {
+        <ul className="team_stats">
+          <li>IQ: {teamstats.intelligence || 0}</li>
+          <li>ST: {teamstats.strength || 0}</li>
+          <li>DB: {teamstats.durability || 0}</li>
+          <li>SP: {teamstats.speed || 0}</li>
+          <li>PW: {teamstats.power || 0}</li>
+          <li>CM: {teamstats.combat || 0}</li>
+        </ul>
+      }
       {team &&
         team.map((hero) => (
           <div className="team_card" key={hero.id}>
@@ -20,6 +42,8 @@ const Team = ({ team }) => {
                 <li>Intelligence: {hero.powerstats.intelligence}</li>
                 <li>Strength: {hero.powerstats.strength}</li>
                 <li>Durability: {hero.powerstats.durability}</li>
+                <li>Speed: {hero.powerstats.speed}</li>
+
                 <li>Power: {hero.powerstats.power}</li>
                 <li>Combat: {hero.powerstats.combat}</li>
               </ul>

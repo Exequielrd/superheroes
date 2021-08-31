@@ -43,3 +43,12 @@
   list-style: none;
   padding: 0;
 }
+
+.team_stats {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  color: #ddd;
+  font-size: 1.3rem;
+}
