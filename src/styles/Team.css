@@ -1,5 +1,45 @@
 .team_container {
   height: 100vh;
   width: 30vw;
-  background: black;
+  overflow-y: scroll;
+  color: #eee;
+  background: rgb(190, 6, 6);
+  padding: 2rem 1rem;
+}
+
+.team_container h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.team_card {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.team_card > img {
+  width: 30%;
+  object-fit: contain;
+}
+
+.card-boddy {
+  padding: 0.5rem 1rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+}
+
+.team_card h3 {
+  font-size: 1.3rem;
+  color: #ddd;
+}
+
+.powerstats {
+  list-style: none;
+  padding: 0;
 }

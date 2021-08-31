@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <div className="container-fluid ">
       <Team team={team} />
-      <SearchHero dispatch={dispatch} />
+      <SearchHero dispatch={dispatch} team={team} />
     </div>
   )
 }

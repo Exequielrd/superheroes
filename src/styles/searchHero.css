@@ -1,9 +1,19 @@
+.search_container {
+  width: 70%;
+  padding: 4rem 2rem;
+  background: rgb(151, 3, 3);
+  color: #eee;
+}
+
 .search_result_container {
-  width: 70vw;
+  width: 100%;
   display: flex;
-  justify-content: center;
 }
 
 .searchHero_card {
   width: 15rem;
+}
+
+.form-label {
+  font-size: 1.2rem;
 }

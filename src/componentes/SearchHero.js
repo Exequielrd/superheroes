@@ -1,10 +1,23 @@
 import React, { useState } from "react"
 import axios from "axios"
 import { Formik } from "formik"
-import "../styles/searchHero.css"
+import "../styles/SearchHero.css"
 
-const SearchHero = ({ dispatch }) => {
+const SearchHero = ({ dispatch, team }) => {
   const [searchData, setSearchData] = useState()
+  const [error, setError] = useState()
+  const IDs = team.map((hero) => hero.id)
+
+  const addHero = (hero) => {
+    if (IDs.includes(hero.id)) {
+      setError("Ya has agregado a este heroe a tu equipo")
+    } else {
+      dispatch({
+        type: "ADDHERO",
+        payload: hero,
+      })
+    }
+  }
 
   return (
     <Formik
@@ -24,10 +37,10 @@ const SearchHero = ({ dispatch }) => {
               `https://superheroapi.com/api/2979053042377754/search/${values.name}`
             )
             .then((res) => {
-              console.log(res)
               setSearchData(res.data.results)
               setSubmitting(false)
             })
+            .catch((err) => alert(err))
         }
       }}
     >
@@ -40,9 +53,9 @@ const SearchHero = ({ dispatch }) => {
         handleSubmit,
         isSubmitting,
       }) => (
-        <div className="search_container">
+        <div className="search_container ">
           {/* NAME SEARCH */}
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="form">
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
                 Nombre del Superheroe
@@ -72,7 +85,7 @@ const SearchHero = ({ dispatch }) => {
           <div className="search_result_container">
             {searchData &&
               searchData.map((hero, index) => (
-                <div className="card searchHero_card">
+                <div className="card searchHero_card" key={index}>
                   <img
                     src={hero.image.url}
                     className="card-img-top"
@@ -80,6 +93,12 @@ const SearchHero = ({ dispatch }) => {
                   />
                   <div className="card-body">
                     <h5 className="card-title">{hero.name}</h5>
+                    <button
+                      className="btn btn-warning"
+                      onClick={() => addHero(hero)}
+                    >
+                      Añadir al equipo
+                    </button>
                   </div>
                 </div>
               ))}
