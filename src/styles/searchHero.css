@@ -8,6 +8,8 @@
 .search_result_container {
   width: 100%;
   display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
 }
 
 .searchHero_card {
