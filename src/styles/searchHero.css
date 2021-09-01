@@ -4,6 +4,14 @@
   background: rgb(151, 3, 3);
   color: #eee;
   overflow-y: scroll;
+  position: relative;
+}
+
+.form {
+  position: sticky;
+  top: 0;
+  background: lime;
+  z-index: 10;
 }
 
 .search_result_container {
