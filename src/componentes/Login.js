@@ -113,7 +113,7 @@ const Login = () => {
                 </div>
               </div>
             ) : (
-              <button type="submit" className="btn btn-warning btn-lg">
+              <button type="submit" className="btn btn-lg">
                 Submit
               </button>
             )}
