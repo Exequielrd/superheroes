@@ -30,7 +30,7 @@ const SearchHero = ({ dispatch, team }) => {
         return errors
       }}
       onSubmit={(values, { setSubmitting }) => {
-        if (values.name.length > 3) {
+        if (values.name) {
           setSubmitting(true)
           axios
             .get(
@@ -40,7 +40,10 @@ const SearchHero = ({ dispatch, team }) => {
               setSearchData(res.data.results)
               setSubmitting(false)
             })
-            .catch((err) => alert(err))
+            .catch((err) => {
+              alert(err)
+              setSubmitting(false)
+            })
         }
       }}
     >
@@ -82,14 +85,15 @@ const SearchHero = ({ dispatch, team }) => {
             )}
           </form>
 
-          <div className="search_result_container">
+          <div className="search_result_container row">
             {searchData &&
-              searchData.map((hero, index) => (
-                <div className="card searchHero_card" key={index}>
+              searchData.map((hero) => (
+                <div className="card searchHero_card col-sm-3" key={hero.id}>
                   <img
                     src={hero.image.url}
                     className="card-img-top"
                     alt={hero.name}
+                    loading="lazy"
                   />
                   <div className="card-body">
                     <h5 className="card-title">{hero.name}</h5>

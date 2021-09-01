@@ -3,6 +3,7 @@
   padding: 4rem 2rem;
   background: rgb(151, 3, 3);
   color: #eee;
+  overflow-y: scroll;
 }
 
 .search_result_container {
