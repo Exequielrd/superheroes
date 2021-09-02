@@ -63,26 +63,27 @@ const SearchHero = ({ dispatch, team }) => {
               <label htmlFor="name" className="form-label">
                 Nombre del Superheroe
               </label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.name}
-              />
+              <div className="d-flex bg-white ">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.name}
+                ></input>
+                {isSubmitting ? (
+                  <div className="spinner-border text-warning" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                ) : (
+                  <button type="submit" className="btn btn-warning search_btn">
+                    Buscar
+                  </button>
+                )}
+              </div>
               {errors.name && touched.name && errors.name}
             </div>
-
-            {isSubmitting ? (
-              <div className="spinner-border text-warning" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            ) : (
-              <button type="submit" className="btn btn-warning">
-                Buscar
-              </button>
-            )}
           </form>
 
           <div className="search_result_container row">

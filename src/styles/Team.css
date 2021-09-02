@@ -3,26 +3,29 @@
   width: 40%;
   overflow-y: scroll;
   color: #eee;
-  background: rgb(190, 6, 6);
+  background: rgba(0, 0, 0, 0.5);
   padding: 2rem 1rem;
+  font-weight: 200;
 }
 
 .team_container h1 {
   width: 100%;
   text-align: center;
+  font-weight: 200;
 }
 
 .team_container h2 {
   text-transform: capitalize;
   width: 100%;
   text-align: center;
+  font-weight: 200;
 }
 
 .team_card {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  background: rgba(0, 0, 0, 0.7);
+  background: #e85d04;
   border-radius: 1rem;
   margin-bottom: 1rem;
 }
@@ -36,11 +39,13 @@
   padding: 0.5rem 1rem;
   width: 60%;
   font-size: 1.3rem;
-  font-weight: 200;
+  font-weight: 600;
 }
 
 .card-title {
   font-size: 1.5rem;
+  font-weight: 400;
+  width: 100%;
 }
 
 .powerstats {

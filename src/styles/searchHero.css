@@ -1,6 +1,5 @@
 .search_container {
   width: 60%;
-  padding: 4rem 2rem;
   background: #370617;
   color: #eee;
   overflow-y: scroll;
@@ -10,8 +9,12 @@
 .form {
   position: sticky;
   top: 0;
-  background: lime;
   z-index: 10;
+  background-color: #000;
+  padding: 2rem;
+}
+.search_btn {
+  width: 5rem;
 }
 
 .search_result_container {
@@ -23,7 +26,8 @@
 }
 
 .searchHero_card {
-  width: 15rem;
+  width: 12rem;
+  margin-bottom: 3rem;
 }
 
 .form-label {
